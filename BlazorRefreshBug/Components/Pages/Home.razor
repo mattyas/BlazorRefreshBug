@@ -1,0 +1,19 @@
+﻿@page "/"
+@attribute [StreamRendering(true)]
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world @Id!</h1>
+
+Welcome to your new app.
+
+@code {
+
+    private int Id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        for (Id = 0; Id < 10; Id++){
+            await Task.Delay(1000);
+            StateHasChanged();
+        }
+    }
+}
